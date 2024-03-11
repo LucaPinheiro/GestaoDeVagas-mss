@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.lucapinheiro.gestao_vagas.shared.domain.entities.Candidate;
+import br.com.lucapinheiro.gestao_vagas.shared.domain.entities.candidate.Candidate;
 import jakarta.validation.Valid;
 
 @RestController

@@ -1,4 +1,4 @@
-package br.com.lucapinheiro.gestao_vagas.shared.domain.entities;
+package br.com.lucapinheiro.gestao_vagas.shared.domain.entities.candidate;
 
 import java.util.UUID;
 
