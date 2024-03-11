@@ -6,6 +6,7 @@ import org.hibernate.validator.constraints.Length;
 
 // adicionando da dependencia do jakarta.validation para usar as anotações de validação (próprio do Spring)
 import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;
 import lombok.Data; //lib para gerar os getters e setters
 
@@ -15,6 +16,7 @@ public class Candidate {
     private UUID id;
     private String name;
 
+    @NotBlank(message = "O campo [username] não pode ser vazio")
     @Pattern(regexp = "^(?!\\s*$).+", message = "O campo [username] não pode conter espaços em branco ou ser vazio")
     private String username;
 
