@@ -17,7 +17,7 @@ public class Candidate {
     private String name;
 
     @NotBlank(message = "O campo [username] não pode ser vazio")
-    @Pattern(regexp = "^(?!\\s*$).+", message = "O campo [username] não pode conter espaços em branco ou ser vazio")
+    @Pattern(regexp = "\\S+", message = "O campo [username] não pode conter espaços em branco ou ser vazio")
     private String username;
 
     @Email(message = "O campo [email] deve conter um e-mail válido")
