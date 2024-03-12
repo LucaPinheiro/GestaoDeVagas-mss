@@ -1,13 +1,14 @@
 package br.com.lucapinheiro.gestao_vagas.modules.cadidate.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import br.com.lucapinheiro.gestao_vagas.modules.cadidate.useCase.CreateCandidateUseCase;
 import br.com.lucapinheiro.gestao_vagas.shared.domain.entities.candidate.Candidate;
-import br.com.lucapinheiro.gestao_vagas.shared.domain.repositories.cadidate.Candidate_repository_interface;
 import jakarta.validation.Valid;
 
 @RestController
@@ -15,10 +16,15 @@ import jakarta.validation.Valid;
 public class CadidateController {
 
     @Autowired
-    private Candidate_repository_interface candidate_repository_interface;
-    
+    private CreateCandidateUseCase createCandidateUseCase;
+
     @PostMapping("/")
-    public Candidate createCandidate(@Valid @RequestBody Candidate candidate) {
-        return this.candidate_repository_interface.save(candidate);
+    public ResponseEntity<Object> createCandidate(@Valid @RequestBody Candidate candidate) {
+        try {
+            var result = this.createCandidateUseCase.execute(candidate);
+            return ResponseEntity.ok().body(result);
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
     }
 }
