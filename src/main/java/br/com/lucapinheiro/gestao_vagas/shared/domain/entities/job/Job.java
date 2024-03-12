@@ -6,6 +6,7 @@ import java.util.UUID;
 import org.hibernate.annotations.CreationTimestamp;
 
 import br.com.lucapinheiro.gestao_vagas.shared.domain.entities.company.Company;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -26,9 +27,10 @@ public class Job {
     private String benefits;
 
     @ManyToOne()
-    @JoinColumn(name="company_id")
+    @JoinColumn(name = "company_id", insertable = false, updatable = false)
     private Company company;
 
+    @Column(name = "company_id")
     private UUID companyId;
 
     @CreationTimestamp
