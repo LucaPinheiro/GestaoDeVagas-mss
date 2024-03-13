@@ -7,14 +7,21 @@ import org.springframework.security.web.SecurityFilterChain;
 
 @Configuration
 public class SecurityConfig {
-    
-    // Para que é isso? Para configurar o Spring Security para desabilitar o CSRF e então eu configure o Security
+
+    // Para que é isso? Para configurar o Spring Security para desabilitar o CSRF e
+    // então eu configure o Security
     // da minha aplicação de outra forma, por exemplo, com JWT.
-    
-    @Bean // para indicar que um método dentro da classe de configuração está sendo usado 
+
+    @Bean // para indicar que um método dentro da classe de configuração está sendo usado
           // para definir algum objeto já gerenciado pelo spring
     SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-        http.csrf(csrf -> csrf.disable());
+        http.csrf(csrf -> csrf.disable())
+                .authorizeHttpRequests(auth -> { // Configuração de autorização das requisições
+                    auth.requestMatchers("/candidate/").permitAll() // Permissão para criar candidato sem autenticação
+                            .requestMatchers("/company/").permitAll(); // Permissão para criar empresa sem autenticação
+                    auth.anyRequest().authenticated(); // Qualquer outra requisição precisa de autenticação
+                });
+
         return http.build();
     }
 }
