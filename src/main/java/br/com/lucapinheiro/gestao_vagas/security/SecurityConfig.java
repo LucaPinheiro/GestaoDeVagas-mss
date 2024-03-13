@@ -12,8 +12,8 @@ public class SecurityConfig {
     // então eu configure o Security
     // da minha aplicação de outra forma, por exemplo, com JWT.
 
-    @Bean // para indicar que um método dentro da classe de configuração está sendo usado
-          // para definir algum objeto já gerenciado pelo spring
+    // para indicar que um método dentro da classe de configuração está sendo usado para definir algum objeto já gerenciado pelo spring
+    @Bean
     SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http.csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(auth -> { // Configuração de autorização das requisições
