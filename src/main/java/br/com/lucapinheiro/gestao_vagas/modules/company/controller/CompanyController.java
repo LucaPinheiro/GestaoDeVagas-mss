@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.lucapinheiro.gestao_vagas.modules.company.useCase.CreateCompanyUsecase;
+import br.com.lucapinheiro.gestao_vagas.modules.company.usecase.CreateCompanyUsecase;
 import br.com.lucapinheiro.gestao_vagas.shared.domain.entities.company.Company;
 import br.com.lucapinheiro.gestao_vagas.shared.helpers.exceptions.UserFoundException;
 import jakarta.validation.Valid;
