@@ -1,6 +1,7 @@
 package br.com.lucapinheiro.gestao_vagas.modules.company.usecase;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import br.com.lucapinheiro.gestao_vagas.shared.domain.entities.company.Company;
@@ -13,13 +14,19 @@ public class CreateCompanyUsecase {
     @Autowired
     private CompanyRepository companyRepository;
 
-    public Company execute(Company companyEntity) {
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+
+    public Company execute(Company company) {
         this.companyRepository
-                .findByUsernameOrEmail(companyEntity.getUsername(), companyEntity.getEmail())
+                .findByUsernameOrEmail(company.getUsername(), company.getEmail())
                 .ifPresent(user -> {
                     throw new UserFoundException();
                 });
 
-        return this.companyRepository.save(companyEntity);
+                var password = passwordEncoder.encode(company.getPassword());
+                company.setPassword(password);
+
+        return this.companyRepository.save(company);
     }
 }
