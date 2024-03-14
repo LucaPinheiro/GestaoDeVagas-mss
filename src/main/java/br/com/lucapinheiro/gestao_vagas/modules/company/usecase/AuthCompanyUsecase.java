@@ -1,5 +1,8 @@
 package br.com.lucapinheiro.gestao_vagas.modules.company.usecase;
 
+import java.time.Duration;
+import java.time.Instant;
+
 import javax.security.sasl.AuthenticationException;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,7 +33,7 @@ public class AuthCompanyUsecase {
         var company = this.companyRepository
                 .findByUsername(authCompanyDTO.getUsername())
                 .orElseThrow(() -> {
-                    throw new UsernameNotFoundException("Company not found");
+                    throw new UsernameNotFoundException("Username/password incorrect");
                 });
 
         // Se a company existir, verificar se a senha está correta
@@ -45,6 +48,7 @@ public class AuthCompanyUsecase {
         Algorithm algorithm = Algorithm.HMAC256(secretKey);
         var token = JWT.create()
                 .withIssuer("javagas")
+                .withExpiresAt(Instant.now().plus(Duration.ofHours(2)))
                 .withSubject(company.getId().toString())
                 .sign(algorithm);
         return token;
