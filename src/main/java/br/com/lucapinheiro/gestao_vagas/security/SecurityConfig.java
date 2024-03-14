@@ -31,7 +31,8 @@ public class SecurityConfig {
                                                                            // autenticação
                     auth.anyRequest().authenticated(); // Qualquer outra requisição precisa de autenticação
                 })
-                .addFilterBefore(securityFilter, BasicAuthenticationFilter.class);
+                .addFilterBefore(securityFilter, BasicAuthenticationFilter.class); // Adiciona o filtro de segurança para as
+                                                                                 // requisições
         return http.build();
     }
 
