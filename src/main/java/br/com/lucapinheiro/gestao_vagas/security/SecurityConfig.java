@@ -20,7 +20,8 @@ public class SecurityConfig {
         http.csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(auth -> { // Configuração de autorização das requisições
                     auth.requestMatchers("/candidate/").permitAll() // Permissão para criar candidato sem autenticação
-                            .requestMatchers("/company/").permitAll(); // Permissão para criar empresa sem autenticação
+                            .requestMatchers("/company/").permitAll() // Permissão para criar empresa sem autenticação
+                            .requestMatchers("/auth/company"). permitAll(); // Permissão para autenticar empresa sem autenticação
                     auth.anyRequest().authenticated(); // Qualquer outra requisição precisa de autenticação
                 });
 
