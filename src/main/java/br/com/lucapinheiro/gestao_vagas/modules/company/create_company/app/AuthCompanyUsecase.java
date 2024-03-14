@@ -1,4 +1,4 @@
-package br.com.lucapinheiro.gestao_vagas.modules.company.usecase;
+package br.com.lucapinheiro.gestao_vagas.modules.company.create_company.app;
 
 import java.time.Duration;
 import java.time.Instant;

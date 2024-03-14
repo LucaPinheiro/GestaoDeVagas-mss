@@ -1,4 +1,4 @@
-package br.com.lucapinheiro.gestao_vagas.modules.company.usecase;
+package br.com.lucapinheiro.gestao_vagas.modules.company.create_company.app;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;

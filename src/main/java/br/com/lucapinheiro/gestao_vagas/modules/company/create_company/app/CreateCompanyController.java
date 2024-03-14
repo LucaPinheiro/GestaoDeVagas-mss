@@ -1,4 +1,4 @@
-package br.com.lucapinheiro.gestao_vagas.modules.company.controller;
+package br.com.lucapinheiro.gestao_vagas.modules.company.create_company.app;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -7,14 +7,13 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.lucapinheiro.gestao_vagas.modules.company.usecase.CreateCompanyUsecase;
 import br.com.lucapinheiro.gestao_vagas.shared.domain.entities.company.Company;
 import br.com.lucapinheiro.gestao_vagas.shared.helpers.exceptions.UserFoundException;
 import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping("/company")
-public class CompanyController {
+public class CreateCompanyController {
 
     @Autowired // injeta a dependencia do usecase para o controller poder usar o metodo execute do usecase
     private CreateCompanyUsecase createCompanyUsecase; // cria uma variavel do tipo usecase

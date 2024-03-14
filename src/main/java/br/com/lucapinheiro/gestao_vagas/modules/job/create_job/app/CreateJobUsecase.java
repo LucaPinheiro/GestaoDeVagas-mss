@@ -1,4 +1,4 @@
-package br.com.lucapinheiro.gestao_vagas.modules.job.usecase;
+package br.com.lucapinheiro.gestao_vagas.modules.job.create_job.app;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

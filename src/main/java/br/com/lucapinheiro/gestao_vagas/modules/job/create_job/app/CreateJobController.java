@@ -1,4 +1,4 @@
-package br.com.lucapinheiro.gestao_vagas.modules.job.controller;
+package br.com.lucapinheiro.gestao_vagas.modules.job.create_job.app;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -7,13 +7,12 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.lucapinheiro.gestao_vagas.modules.job.usecase.CreateJobUsecase;
 import br.com.lucapinheiro.gestao_vagas.shared.domain.entities.job.Job;
 import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping("/job")
-public class JobController {
+public class CreateJobController {
 
     @Autowired
     private CreateJobUsecase createJobUsecase;

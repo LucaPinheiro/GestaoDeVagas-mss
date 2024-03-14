@@ -1,4 +1,4 @@
-package br.com.lucapinheiro.gestao_vagas.modules.company.controller;
+package br.com.lucapinheiro.gestao_vagas.modules.company.create_company.app;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.lucapinheiro.gestao_vagas.modules.company.usecase.AuthCompanyUsecase;
 import br.com.lucapinheiro.gestao_vagas.shared.infra.dto.AuthCompanyDTO;
 
 // Está classe é um controller que recebe requisições para autenticar uma empresa e retorna um token JWT
