@@ -9,5 +9,6 @@ import br.com.lucapinheiro.gestao_vagas.shared.domain.entities.candidate.Candida
 
 public interface CandidateRepository extends JpaRepository<Candidate, UUID> {
     Optional <Candidate> findByUsernameOrEmail(String username, String email);
+    Optional <Candidate> findByUsername(String username);
 
 }
