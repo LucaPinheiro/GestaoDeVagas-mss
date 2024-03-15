@@ -18,6 +18,8 @@ import br.com.lucapinheiro.gestao_vagas.shared.domain.repositories.cadidate.Cand
 import br.com.lucapinheiro.gestao_vagas.shared.infra.dto.AuthCandidateRequestDTO;
 import br.com.lucapinheiro.gestao_vagas.shared.infra.dto.AuthCandidateResponseDTO;
 
+
+// Classe para autenticar o usuário e gerar o token de autenticação
 public class AuthCandidateUsecase {
 
     @Value("${security.token.secret.candidate}")
