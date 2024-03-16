@@ -37,8 +37,7 @@ public class SecurityCandidateFilter extends OncePerRequestFilter {
                 }
 
                 request.setAttribute("candidate_id", token.getSubject());
-                System.out.println("CANDIDATE ID: " + token.getSubject());
-                System.out.println(token);
+                var roles = token.getClaim("roles");
             }
         }
         filterChain.doFilter(request, response);
