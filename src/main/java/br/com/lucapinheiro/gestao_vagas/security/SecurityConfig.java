@@ -27,6 +27,7 @@ public class SecurityConfig {
                 .authorizeHttpRequests(auth -> { // Configuração de autorização das requisições
                     auth.requestMatchers("/candidate/").permitAll() // Permissão para criar candidato sem autenticação
                             .requestMatchers("/company/").permitAll() // Permissão para criar empresa sem autenticação
+                            .requestMatchers("/candidate/auth").permitAll() // Permissão para autenticar candidato sem autenticação
                             .requestMatchers("/auth/company").permitAll(); // Permissão para autenticar empresa sem
                                                                            // autenticação
                     auth.anyRequest().authenticated(); // Qualquer outra requisição precisa de autenticação
