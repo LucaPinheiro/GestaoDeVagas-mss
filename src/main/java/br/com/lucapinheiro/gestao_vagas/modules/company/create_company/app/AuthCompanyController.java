@@ -15,13 +15,13 @@ import br.com.lucapinheiro.gestao_vagas.shared.infra.dto.AuthCompanyDTO;
 // para a empresa autenticada. Se a empresa não existir ou a senha estiver incorreta, retorna um erro 401. Vulgo Unauthorized.
 
 @RestController
-@RequestMapping("/auth")
+@RequestMapping("/company")
 public class AuthCompanyController {
 
     @Autowired
     private AuthCompanyUsecase authCompanyUsecase;
 
-    @PostMapping("/company")
+    @PostMapping("/auth")
     public ResponseEntity<Object> create(@RequestBody AuthCompanyDTO authCompanyDTO) {
         try {
             var result = this.authCompanyUsecase.execute(authCompanyDTO);
