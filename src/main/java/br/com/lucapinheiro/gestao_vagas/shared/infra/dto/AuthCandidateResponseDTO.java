@@ -1,5 +1,6 @@
 package br.com.lucapinheiro.gestao_vagas.shared.infra.dto;
 
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -16,5 +17,6 @@ import lombok.NoArgsConstructor;
 public class AuthCandidateResponseDTO {
 
     private String acess_token;
+    private Long expires_in; // Data de expiração do token
 
 }
