@@ -15,6 +15,9 @@ public class SecurityConfig {
     @Autowired
     private SecurityFilter securityFilter;
 
+    @Autowired
+    private SecurityCandidateFilter securityCandidateFilter;
+
     // Para que é isso? Para configurar o Spring Security para desabilitar o CSRF e
     // então eu configure o Security
     // da minha aplicação de outra forma, por exemplo, com JWT.
@@ -28,13 +31,14 @@ public class SecurityConfig {
                     auth.requestMatchers("/candidate/").permitAll() // Permissão para criar candidato sem autenticação
                             .requestMatchers("/company/").permitAll() // Permissão para criar empresa sem autenticação
                             .requestMatchers("/candidate/auth").permitAll() // Permissão para autenticar candidato sem autenticação
-                            .requestMatchers("/auth/company").permitAll(); // Permissão para autenticar empresa sem
+                            .requestMatchers("/company/auth").permitAll(); // Permissão para autenticar empresa sem
                                                                            // autenticação
                     auth.anyRequest().authenticated(); // Qualquer outra requisição precisa de autenticação
                 })
-                .addFilterBefore(securityFilter, BasicAuthenticationFilter.class); // Adiciona o filtro de segurança para as
-                                                                                 // requisições
-        return http.build();
+                .addFilterBefore(securityCandidateFilter, BasicAuthenticationFilter.class) // Adiciona o filtro de segurança para as requisições                                                       
+                .addFilterBefore(securityFilter, BasicAuthenticationFilter.class);// Adiciona o filtro de segurança para as requisições
+        
+                return http.build();
     }
 
     @Bean
