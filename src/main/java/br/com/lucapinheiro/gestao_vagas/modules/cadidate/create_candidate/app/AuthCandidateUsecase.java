@@ -46,7 +46,7 @@ public class AuthCandidateUsecase {
             throw new AuthenticationException();
         }
 
-        Algorithm algorithm = Algorithm.HMAC256("secret"); // Algoritiimo de criptografia
+        Algorithm algorithm = Algorithm.HMAC256(secret); // Algoritiimo de criptografia
         var expiresIn = Instant.now().plus(Duration.ofHours(1)); // Data de expiração do token
 
         // Esse token é gerado para o usuário se autenticar
