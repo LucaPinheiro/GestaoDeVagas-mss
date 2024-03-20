@@ -53,7 +53,7 @@ public class AuthCandidateUsecase {
         var token = JWT.create()
                 .withIssuer("javagas")
                 .withSubject(candidate.getId().toString())
-                .withClaim("roles", Arrays.asList("candidate"))
+                .withClaim("roles", Arrays.asList("CANDIDATE")) // Defindo a role do usuário para o spring security (ROLE_CANDIDATE)
                 .withExpiresAt(expiresIn)
                 .sign(algorithm);
 
